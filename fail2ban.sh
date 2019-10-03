@@ -6,20 +6,9 @@ _=/usr/bin/env
 LANG=en_US.UTF-8
 SHELL=/bin/bash
 PWD=/root
-echo "[DEFAULT]
-
-destmail = root@debian
-sender = root@debian
-mta = sendmail
-
-action = %(action_mwl)s
-
-[sshd]
-enabled = true
-port = 520
-filter = sshd
-bantime = 1m
-findtime = 1m
+echo "[sshd]
+port = 60
+bantime = 600
 maxretry = 3" >> /etc/fail2ban/jail.local
 
 /etc/init.d/fail2ban restart

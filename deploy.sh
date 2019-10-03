@@ -1,7 +1,7 @@
 #install yo shiet
 apt-get -y install sudo emacs fail2ban apache2 openssh-server
 #give user sudo
-usermod -aG sudo skrt
+usermod -aG sudo alois
 #add host-only adapter to network file (for ssh)
 cp interfaces /etc/network/interfaces
 service networking restart
@@ -18,7 +18,7 @@ sh ./fail2ban.sh
 #set scripts
 mv update.sh /etc/cron.d/
 mv checkcron.sh /etc/cron.d/
-#iptables run on startup (because it is not presistant)
+#iptables run on startup (because it is not persistant)
 mv iptables.sh /etc/cron.d/
 
 echo "0 4 * * 0 /bin/sh /etc/cron.d/update.sh

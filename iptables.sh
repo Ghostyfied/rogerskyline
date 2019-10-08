@@ -28,7 +28,7 @@ iptables -t mangle -A PREROUTING -p tcp ! --syn -m conntrack --ctstate NEW -j DR
 # Drop SYN packets with suspicious MSS value
 iptables -t mangle -A PREROUTING -p tcp -m conntrack --ctstate NEW -m tcpmss ! --mss 536:65535 -j DROP
 
-# Block packets with bogus TCP flags
+# Block packets
 iptables -t mangle -A PREROUTING -p tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG NONE -j DROP
 iptables -t mangle -A PREROUTING -p tcp --tcp-flags FIN,SYN FIN,SYN -j DROP
 iptables -t mangle -A PREROUTING -p tcp --tcp-flags SYN,RST SYN,RST -j DROP
